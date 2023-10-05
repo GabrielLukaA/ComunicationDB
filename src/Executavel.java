@@ -12,9 +12,11 @@ public class Executavel {
         // falta especificar qual banco de dados que a conexão será feita
         String usuario = "root";
         String senha = "root";
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(urlBanco, usuario, senha);
+//        Connection connection = null;
+
+        //Usando o try com recurso, automáticamente a connection irá se fechar. Fazendo-se assim desnecessário o uso do connection.close();
+        try (Connection connection = DriverManager.getConnection(urlBanco, usuario, senha)){
+
             System.out.println(connection);
 //            inserir(connection, new Usuario(9452, "romario", "romario", 20));
 
@@ -24,9 +26,11 @@ public class Executavel {
         } catch (SQLException e) {
             throw new RuntimeException(e);
             // O finally sempre será executado!!!
-        } finally {
-            connection.close();
         }
+//
+//        finally {
+//            connection.close();
+//        }
 
 
     }
