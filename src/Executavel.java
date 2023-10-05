@@ -23,6 +23,7 @@ public class Executavel {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
+            // O finally sempre será executado!!!
         } finally {
             connection.close();
         }
