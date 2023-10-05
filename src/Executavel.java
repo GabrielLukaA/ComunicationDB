@@ -6,18 +6,25 @@ import java.util.List;
 import java.util.Set;
 
 public class Executavel {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         String urlBanco = "jdbc:mysql://localhost:3306/db_integracao"; // Padrão para comunicar.
         // após as duas barras colocar o servidor e a porta. Endereço localhost é 127.0.0.1, depois da porta ainda
         // falta especificar qual banco de dados que a conexão será feita
         String usuario = "root";
         String senha = "root";
+        Connection connection = null;
         try {
-            Connection connection = DriverManager.getConnection(urlBanco, usuario, senha);
+            connection = DriverManager.getConnection(urlBanco, usuario, senha);
             System.out.println(connection);
-            inserir(connection, new Usuario(9452, "romario", "romario", 20));
+//            inserir(connection, new Usuario(9452, "romario", "romario", 20));
+
+            System.out.println(buscarTodos(connection));
+            //Devemos sempre lembrar de fechar a conexão
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } finally {
+            connection.close();
         }
 
 

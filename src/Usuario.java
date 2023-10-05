@@ -42,4 +42,13 @@ public class Usuario {
     public Integer getIdade() {
         return idade;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario -" +
+                "id:" + id +
+                " -  nome:'" + nome +
+                " - senha:'" + senha +
+                " -  idade:" + idade;
+    }
 }
