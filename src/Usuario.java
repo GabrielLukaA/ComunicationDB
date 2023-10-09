@@ -47,8 +47,8 @@ public class Usuario {
     public String toString() {
         return "Usuario -" +
                 "id:" + id +
-                " -  nome:'" + nome +
-                " - senha:'" + senha +
-                " -  idade:" + idade;
+                " -  nome:" + nome +
+                " - senha:" + senha +
+                " -  idade: " + idade;
     }
 }
