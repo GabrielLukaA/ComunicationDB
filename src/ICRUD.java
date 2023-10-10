@@ -2,7 +2,7 @@ import java.sql.Connection;
 import java.text.CompactNumberFormat;
 import java.util.*;
 
-public interface ICRUD<T, ID> {
+public interface ICRUD<T, ID> extends AutoCloseable {
     void inserir(T obj);
 
     void atualizar(T obj);

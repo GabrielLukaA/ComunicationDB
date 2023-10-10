@@ -1,3 +1,6 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Carro {
 
     private Integer id;
@@ -16,6 +19,15 @@ public class Carro {
         this.modelo = modelo;
         this.preco = preco;
         this.ano = ano;
+    }
+
+    public Carro(ResultSet resultSet) throws SQLException {
+        this.id = resultSet.getInt("ano");
+        this.marca = resultSet.getString("marca");
+        this.cor = resultSet.getString("cor");
+        this.modelo = resultSet.getString("modelo");
+        this.preco = resultSet.getDouble("preco");
+        this.id = resultSet.getInt("id");
     }
 
     public Carro(int idCarro) {
